@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Item</title>
+</head>
+<body>
+<br>
+	<div class="container">
+		<form name="createForm">
+		
+		<div class="form-row">
+			<div class="form-group col-sm-6">
+				<label for="itemName">Item Name</label> 
+				<input type="text" id="itemName" class="form-control" ng-model="newItem.itemName" required /> 
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="clientId">Client Id:</label> 
+				<input type="text" id="clientId" class="form-control" ng-model="newItem.clientId" required />
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="itemCategoryId">Item Category Id:</label> 
+				<input type="text" id="itemCategoryId" class="form-control" ng-model="newItem.itemCategoryId" required /> 
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-sm-12">
+				<label for="itemDescription">Item Description:</label>
+  				<textarea class="form-control" rows="3" id="itemDescription" ng-model="newItem.itemDescription"></textarea>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-sm-4">
+				<label for=itemSize>Item Size:</label> 
+				<input type="text" id="itemSize" class="form-control" ng-model="newItem.itemSize"/>
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="initialPrice">Initial Price:</label>
+				<input type="text" id="initialPrice" class="form-control" ng-model="newItem.initialPrice" required />
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="minimumPrice">Minimum Price:</label> 
+				<input type="text" class="form-control" name="minimumPrice" ng-model="newItem.minimumPrice" required /> 
+			</div>	
+		</div>
+
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="craigslist">Craigslist</label>
+				<input class="form-check-input" type="checkbox" id="craigslist" value="option1"> 
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="fbmarketplace">FB MarketPlace</label>
+				<input class="form-check-input" type="checkbox" id="fbmarketplace" value="option2"> 
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="nextdoor">NextDoor</label>
+				<input class="form-check-input" type="checkbox" id="nextdoor" value="option3"> 
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="offerup">OfferUp</label>
+				<input class="form-check-input" type="checkbox" id="offerup" value="option4"> 
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="letgo">LetGo</label>
+				<input class="form-check-input" type="checkbox" id="letgo" value="option5"> 
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="other">Other</label>
+				<input class="form-check-input" type="checkbox" id="other" value="option6"> 
+			</div>
+
+			<br>
+
+			<p>
+				<span class="text-warning" ng-bind="createStatus"></span>
+			</p>
+
+			<h5>Press 'Save' to add new item.</h5>
+			<h5>Press 'Clear' to discard changes.</h5>
+
+			<div class="footer">
+				<button type="button" ng-click="postItem()"
+					ng-disabled="!createForm.$valid || successfulInsert"
+					class="btn btn-success">Save</button>
+				<button type="button" ng-click="clearItem()"
+					class="btn btn-success">Clear</button>
+			</div>
+		
+		</form>
+
+	</div>
+</body>
+</html>

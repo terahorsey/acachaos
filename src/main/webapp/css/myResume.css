@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+.well {
+  background-color:#7eaacd; 
+}
+
+#profilepic {
+	float:left; height:189px; width:140px; padding:10px;
+} 

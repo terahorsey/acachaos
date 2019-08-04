@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Clients Page</title>
+
+<style>
+
+.table {
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	}
+#searchRow {
+	background-color: gray;
+	}
+#colTitles {
+	background-color: lightgray;
+	}	
+#refreshRow {
+	background-color: lightgray;
+	}
+
+
+</style>
+</head>
+<body>
+
+	<div class="container" ng-init="getClients()">
+		<div ng-show="showSearch">
+			<table class="table table-hover table-bordered">
+				<h1 class="text-center col-sm-12">Chaos Client List</h1>
+				<tr id="searchRow">
+					<td colspan="8" class="text-right"><span id="search">Search</span>
+						<input type="text" maxlength="20" ng-model="searchValue">
+					</td>
+				</tr>
+				<tr id="colTitles">
+					<th class="text-center col-sm-1">Client Id</th>
+					<th class="text-center col-sm-2">First Name</th>
+					<th class="text-center col-sm-2">Last Name</th>
+					<th class="text-center col-sm-2">Phone</th>
+					<th class="text-center col-sm-2">Email</th>
+					<th class="text-center col-sm-1">Tera's Commission %</th>
+					<th class="text-center col-sm-1"># Items Posted</th>
+					<th class="text-center col-sm-1"># Items Sold</th>
+				</tr>
+				<tr ng-repeat="client in clients | filter : searchValue"
+					ng-click="updateClient(client)">
+					<td class="text-center col-sm-1">{{client.clientId}}</td>
+					<td class="col-sm-2">{{client.firstName}}</td>
+					<td class="col-sm-2">{{client.lastName}}</td>
+					<td class="col-sm-2">{{client.phone}}</td>
+					<td class="col-sm-2">{{client.email}}</td>
+					<td class="text-center col-sm-1">{{client.agreedCommission}}</td>
+					<td class="text-center col-sm-1">{{client.itemsPosted}}</td>
+					<td class="text-center col-sm-1">{{client.itemsSold}}</td>
+				</tr>
+				<tr id="refreshRow">
+					<td colspan="4" class="text-left">
+						<h4>Select a client to update</h4>
+					</td>
+					<td colspan="4" class="text-right">
+						<button type="button" ng-click="getClients()"
+							class="btn btn-success">
+							<span class="glyphicon glyphicon-refresh"></span> Refresh List
+						</button>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+
+		<br>
+
+		<form name="updateForm">
+			<div ng-show="showEditDelete">
+
+				<table class="table table-bordered small-table">
+					<tr>
+						<td><label for="clientId">Client Id:</label> <span
+							id="clientId" ng-bind="clientToUpdate.clientId"></span></td>
+					</tr>
+					<tr>
+						<td><label for="itemsPosted"># of Items Posted:</label> <input
+							id="itemsPosted" type="text"
+							ng-model="clientToUpdate.itemsPosted" /></td>
+					</tr>
+					<tr>
+						<td><label for="itemsSold"># of Items Sold</label> <input
+							id="itemsSold" type="text" ng-model="clientToUpdate.itemsSold" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Status Update: <span class="text-warning" ng-bind="updateStatus"></span>
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<br>
+
+				<h5>Press 'Update' to save client changes.</h5>
+				<h5>Press 'Cancel' to discard changes &/or return to Client
+					List.</h5>
+
+				<div class="footer">
+					<button type="button" ng-click="putClient(clientToUpdate)"
+						class="btn btn-success">
+						<span class="glyphicon glyphicon-edit"></span>Update
+					</button>
+					<button type="button" ng-click="returnToClients()"
+						class="btn btn-warning">
+						<span class="glyphicon"></span>Cancel
+					</button>
+				</div>
+
+			</div>
+		</form>
+		<div ng-show="showSearch">
+			<h5>Press 'Add Client' to add a client.</h5>
+
+			<div class="footer">
+				<a href="#!addclient" ng-click="postClient(clientToAdd)"
+					class="btn btn-success" role="button">Add Client</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

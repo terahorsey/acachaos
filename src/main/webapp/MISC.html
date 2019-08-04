@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form name="updateForm">
+			<div ng-show="showEditDelete"> 
+
+				<div class="form-group row">
+					<label for="clientId" class="col-sm-2 col-form-label">Client Id:</label>
+					<div class="col-sm-10">
+						<span id="clientId" ng-bind="clientToUpdate.clientId"></span>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="itemsPosted" class="col-sm-2 col-form-label"># of Items Posted:</label>
+					<div class="col-sm-10">
+						<input type="text" id="itemsPosted"
+							ng-model="clientToUpdate.itemsPosted" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="itemsSold" class="col-sm-2 col-form-label"># of Items Sold</label>
+					<div class="col-sm-10">
+						<input type="text" id="itemsSold"
+							ng-model="clientToUpdate.itemsSold" />
+					</div>
+				</div>
+
+				<p>
+					Status Update: <span class="text-warning" ng-bind="updateStatus"></span>
+				</p>
+
+			</div>
+
+			<br>
+
+			<h5>Press 'Update' to save client changes.</h5>
+			<h5>Press 'Cancel' to discard changes &/or return to Client List.</h5>
+
+			<div class="footer">
+				<button type="button" ng-click="putClient(clientToUpdate)"
+					class="btn btn-success">
+					<span class="glyphicon glyphicon-edit"></span>Update</button>
+				<button type="button" ng-click="returnToClients()"
+					class="btn btn-warning">
+					<span class="glyphicon"></span>Cancel</button>
+			</div>
+	
+	</form>
+
+</body>
+</html>
