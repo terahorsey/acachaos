@@ -3,6 +3,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Item</title>
+<style>
+
+#checkbox {
+	font-size: 16px;
+	}
+
+	
+</style>
+
 </head>
 <body>
 <br>
@@ -44,33 +53,30 @@
 			</div>	
 		</div>
 
-			<div class="form-check form-check-inline">
+			<div id ="checkbox" class="form-check form-check-inline col-sm-12">
 				<label class="form-check-label" for="craigslist">Craigslist</label>
 				<input class="form-check-input" type="checkbox" id="craigslist" value="option1"> 
-			</div>
-			<div class="form-check form-check-inline">
+						
 				<label class="form-check-label" for="fbmarketplace">FB MarketPlace</label>
 				<input class="form-check-input" type="checkbox" id="fbmarketplace" value="option2"> 
-			</div>
-			<div class="form-check form-check-inline">
+						
 				<label class="form-check-label" for="nextdoor">NextDoor</label>
 				<input class="form-check-input" type="checkbox" id="nextdoor" value="option3"> 
-			</div>
-			<div class="form-check form-check-inline">
+						
 				<label class="form-check-label" for="offerup">OfferUp</label>
 				<input class="form-check-input" type="checkbox" id="offerup" value="option4"> 
-			</div>
-			<div class="form-check form-check-inline">
+						
 				<label class="form-check-label" for="letgo">LetGo</label>
 				<input class="form-check-input" type="checkbox" id="letgo" value="option5"> 
-			</div>
-			<div class="form-check form-check-inline">
+						
 				<label class="form-check-label" for="other">Other</label>
 				<input class="form-check-input" type="checkbox" id="other" value="option6"> 
+			<br>
+			<br>
 			</div>
 
 			<br>
-
+			
 			<p>
 				<span class="text-warning" ng-bind="createStatus"></span>
 			</p>
