@@ -11,11 +11,19 @@
 	border-width: 4px;
 	border-color: black;
 	}
-#searchRow {
-	background-color: gray;
+#search {
+	font-size: 18px;
+	color: blue;
 	}
-#colTitles {
+th {
 	background-color: lightgray;
+	}
+#items {
+	background-color: white;
+	opacity: 0.75;
+	}
+table.table-hover tr:hover td {
+	background-color: silver;
 	}
 #refreshRow {
 	background-color: lightgray;
@@ -31,12 +39,11 @@
 		
 			<table class="table table-hover table-bordered">
 			<h1 class="text-center col-sm-12">Chaos Item List</h1>
-				<tr id="searchRow">
-					<td colspan="7" class="text-right"><span id="search">Search</span>
+				<caption colspan="7" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
-					</td>
+				</caption>
 				</tr>
-				<tr id="colTitles">
+				<tr>
 					<th class="text-center col-sm-1">Item Id</th>
 					<th class="text-center col-sm-2">Item Name</th>
 					<th class="text-center col-sm-1">Client Id</th>
@@ -45,7 +52,7 @@
 					<th class="text-center col-sm-1">Initial Price</th>
 					<th class="text-center col-sm-1">Minimum Price</th>
 				</tr>
-				<tr ng-repeat="item in items | filter : searchValue"
+				<tr id="items" ng-repeat="item in items | filter : searchValue"
 					ng-click="updateItem(item)">
 					<td class="text-center col-sm-1">{{item.itemId}}</td>
 					<td class="col-sm-2">{{item.itemName}}</td>

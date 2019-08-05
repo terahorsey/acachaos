@@ -11,14 +11,20 @@
 	border-width: 4px;
 	border-color: black;
 	}
-#searchRow {
-	background-color: gray;
-	font-size: 16px;
+#search {
+	font-size: 18px;
+	color: blue;
 	}
 th {
 	background-color: lightgray;
 	}	
-
+#clients {
+	background-color: white;
+	opacity: 0.75;
+	}
+table.table-hover tr:hover td {
+	background-color: silver;
+	}
 #refreshRow {
 	background-color: lightgray;
 	}
@@ -32,10 +38,9 @@ th {
 		<div ng-show="showSearch">
 			<table class="table table-hover table-bordered">
 				<h1 class="text-center col-sm-12">Chaos Client List</h1>
-				<tr id="searchRow">
-					<td colspan="8" class="text-right"><span id="search">Search</span>
+				<caption colspan="8" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
-					</td>
+				</caption>
 				</tr>
 				<tr>
 					<th class="text-center col-sm-1">Client Id</th>
@@ -47,9 +52,9 @@ th {
 					<th class="text-center col-sm-1"># Items Posted</th>
 					<th class="text-center col-sm-1"># Items Sold</th>
 				</tr>
-				<tr ng-repeat="client in clients | filter : searchValue"
+				<tr id="clients" ng-repeat="client in clients | filter : searchValue"
 					ng-click="updateClient(client)">
-					<td class="text-center col-sm-1 bg-blue">{{client.clientId}}</td>
+					<td class="text-center col-sm-1">{{client.clientId}}</td>
 					<td class="col-sm-2">{{client.firstName}}</td>
 					<td class="col-sm-2">{{client.lastName}}</td>
 					<td class="col-sm-2">{{client.phone}}</td>
