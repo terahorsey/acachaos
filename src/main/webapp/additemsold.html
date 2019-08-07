@@ -5,6 +5,83 @@
 <title>Add Item Sold</title>
 </head>
 <body>
+<div class="container" ng-init="getItemSoldByItemId(itemId)">
+<h1>This Item Has Been Sold</h1>
 
+<form name="updateForm">
+			<table class="table table-bordered">
+					<tr>
+						<td><label for="itemId">Item Id:</label> <span
+							id="itemId" ng-bind="itemSoldToUpdate.itemId"></span></td>
+					</tr>
+					<tr>
+						<td><label for="itemName">Item Name:</label> <span
+							id="itemName" ng-bind="itemSoldToUpdate.itemName"></span></td>
+					</tr>
+					<tr>
+						<td><label for="clientId">Client Id:</label> <span
+							id="clientId" ng-bind="itemSoldToUpdate.clientId"></span></td>
+					</tr>
+					<tr>
+						<td><label for="initialPrice">Initial Price:</label> <span
+							id="initialPrice" ng-bind="itemSoldToUpdate.initialPrice"></span></td>
+					</tr>
+					<tr>
+						<td><label for="minimumPrice">Minimum Price:</label> <span
+							id="minimumPrice" ng-bind="itemSoldToUpdate.minimumPrice"></span></td>
+					</tr>
+					<tr>
+						<td><label for="soldDate">Sold Date:</label> 
+						<input id="soldDate" type="date"
+							ng-model="itemSoldToUpdate.soldDate" /></td>
+					</tr>
+					<tr>
+						<td><label for="priceSold">Price Sold:</label> 
+						<input id="priceSold" type="text"
+							ng-model="itemSoldToUpdate.priceSold" /></td>
+					</tr>
+					<tr>
+						<td><label for="agreedCommission">My Commission %:</label> 
+						<input id="agreedCommission" type="text"
+							ng-model="itemSoldToUpdate.agreedCommission" /></td>
+					</tr>
+					<tr>
+						<td><label for="commissionAmount">Commission Amount:</label> 
+						<input id="commissionAmount" type="text"
+							ng-model="clientToUpdate.itemsPosted" /></td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Status Update: <span class="text-warning" ng-bind="updateStatus"></span>
+							</p>
+						</td>
+					</tr>
+				</table>
+				
+				<br>
+			
+			<p>
+				<span class="text-warning" ng-bind="createStatus"></span>
+			</p>
+
+			<h5>Press 'Save' to add new item.</h5>
+			<h5>Press 'Clear' to discard changes.</h5>
+
+			<div class="footer">
+				<button type="button" ng-click="postItem()"
+					ng-disabled="!createForm.$valid || successfulInsert"
+					class="btn btn-success">Save</button>
+				<button type="button" ng-click="clearItem()"
+					class="btn btn-success">Clear</button>
+			</div>
+			</form>
+
+
+
+
+
+
+</div>
 </body>
 </html>

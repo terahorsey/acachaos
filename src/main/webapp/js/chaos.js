@@ -16,8 +16,8 @@ chaosapp.config(function($routeProvider) {
 	.when('/items',{
 		templateUrl : 'items.html'
 	})
-	.when('/itemssold', {
-		templateUrl : 'itemssold.html'
+	.when('/itemsoldlist', {
+		templateUrl : 'itemsoldlist.html'
 	})
 	.when('/search', {
 		templateUrl : 'search.html'
@@ -100,6 +100,7 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 		$scope.itemToUpdate = angular.copy(itemToUpdate);
 		$scope.showEditDelete = true;
 		$scope.showSearch = false;
+		$scope.isDeleteButtonDisabled = false;
 		$scope.updateStatus = '';
 	}
 	
@@ -125,6 +126,19 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 		$scope.getItems();
 	}
 	
+	$scope.deleteItem = function(itemId) {
+		console.log('Delete Item: ' + itemId);
+		$http.delete("/acachaos/webapi/chaosconsignment/delete/" + itemId)
+		.then(function(response) {
+			$scope.isDeleteButtonDisabled = true;
+			$scope.updateStatus = 'Delete Successful';
+			console.log('Number of items deleted: ' + response.data.length);
+		}, function(response) {
+			console.log('Error HTTP DELETE items:' + response.status);
+			$scope.updateStatus = 'Delete Error, ' + response.data.message;
+	});
+}
+	
 	$scope.putItem = function(itemToUpdate) {
 		$scope.jsonObject = angular.toJson(itemToUpdate, false);
 		console.log('JSON item to update: ' + $scope.jsonObject);
@@ -142,11 +156,47 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 		);
 	}
 	
+	$scope.getItemsSold = function() {
+		console.log('getItemsSold');
+		$scope.itemsSold =[{"ItemSoldId": "retrieving items sold list..."}]
+		
+		$scope.showSearch = true;
+		$scope.showEditDelete = false;
+		
+		$http.get("/acachaos/webapi/chaosconsignment/getitemssold")
+		.then(function(response) {
+			$scope.itemsSold = response.data;
+			console.log("Number of items sold: " + $scope.itemsSold.length);
+		}, function(response) {
+			console.log("Error HTTP GET items sold" + response.status);
+		});
+	}
+	
+	$scope.returnToItemsSold = function() {
+		$scope.showEditDelete = false;
+		$scope.showSearch = true;
+		$scope.getItemsSold();
+	}
+	
 });
 
 
 
 chaosapp.controller('chaosCreateController', function($scope, $http) {
+	
+	/** $scope.soldDate = {
+			value: new Date(yyyy, MM, dd)
+	}; **/
+	
+	$scope.itemCategory = {
+		    availableOptions: [
+		      {id: '1', name: 'Appliances'},
+		      {id: '2', name: 'Arts & Crafts'},
+		      {id: '3', name: 'Auto & Auto Parts'}
+		    ]
+	};
+	
+	
 	
 	$scope.postClient = function() {
 		$scope.jsonObject = angular.toJson($scope.newClient, false);
@@ -221,4 +271,6 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 				minimumPrice : ''
 		};
 	}
+	
+	
 });

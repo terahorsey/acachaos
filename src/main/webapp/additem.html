@@ -7,8 +7,11 @@
 
 #checkbox {
 	font-size: 16px;
-	}
-
+}
+.box {
+	height: auto;
+	width: auto;
+}
 	
 </style>
 
@@ -23,15 +26,20 @@
 				<label for="itemName">Item Name</label> 
 				<input type="text" id="itemName" class="form-control" ng-model="newItem.itemName" required /> 
 			</div>
-			<div class="form-group col-sm-3">
+			<div class="form-group col-sm-2">
 				<label for="clientId">Client Id:</label> 
 				<input type="text" id="clientId" class="form-control" ng-model="newItem.clientId" required />
 			</div>
-			<div class="form-group col-sm-3">
-				<label for="itemCategoryId">Item Category Id:</label> 
-				<input type="text" id="itemCategoryId" class="form-control" ng-model="newItem.itemCategoryId" required /> 
-			</div>
 		</div>
+			<div class="box">
+				<label for="itemCategoryId">Item Category Id:</label><br>
+				<select name="itemCategoryId" id="itemCategoryId" 
+				ng-options="availableOptions.name for id in itemCategory.availableOptions track by availableOptions.id" 
+				ng-model="newItem.itemCategoryId" required> 
+				<option value="">Select Item Category</option>
+				</select>
+			</div>
+		
 		<div class="form-row">
 			<div class="form-group col-sm-12">
 				<label for="itemDescription">Item Description:</label>
