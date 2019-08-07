@@ -13,7 +13,7 @@
 	}
 #search {
 	font-size: 18px;
-	color: blue;
+	color: black;
 	}
 th {
 	background-color: lightgray;
@@ -39,35 +39,38 @@ table.table-hover tr:hover td {
 		
 			<table class="table table-hover table-bordered">
 			<h1 class="text-center col-sm-12">Chaos Items Sold List</h1>
-				<caption colspan="9" class="text-right"><span id="search">Search</span>
+				<caption colspan="10" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
 				</caption>
 				</tr>
 				<tr>
 					<th class="text-center col-sm-1">Item Sold Id</th>
-					<th class="text-center col-sm-1">Item Id</th>
-					<th class="text-center col-sm-2">Sold Date</th>
-					<th class="text-center col-sm-2">Price Sold</th>
+					<th class="text-center col-sm-2">Item Name</th>
+					<th class="text-center col-sm-1">Sold Date</th>
+					<th class="text-center col-sm-1">Price Sold</th>
 					<th class="text-center col-sm-1">Tera's Commission %</th>
-					<th class="text-center col-sm-2">Commission Amount</th>
+					<th class="text-center col-sm-1">Commission Amount</th>
 					<th class="text-center col-sm-1">Commission Paid</th>
-					<th class="text-center col-sm-1">WebSite Id</th>
-					<th class="text-center col-sm-1">Client Id</th>
+					<th class="text-center col-sm-2">WebSite Name</th>
+					<th class="text-center col-sm-1">Client First Name</th>
+					<th class="text-center col-sm-1">Client Last Name</th>
+					
 				</tr>
 				<tr id="itemssold" ng-repeat="itemSold in itemsSold | filter : searchValue"
 					ng-click="updateItemSold(itemSold)">
 					<td class="text-center col-sm-1">{{itemSold.itemSoldId}}</td>
-					<td class="text-center col-sm-1">{{itemSold.itemId}}</td>
-					<td class="text-center col-sm-2">{{itemSold.soldDate}}</td>
-					<td class="text-center col-sm-2">{{itemSold.priceSold}}</td>
+					<td class="text-center col-sm-2">{{itemSold.itemName}}</td>
+					<td class="text-center col-sm-1">{{itemSold.soldDate}}</td>
+					<td class="text-center col-sm-1">{{itemSold.priceSold}}</td>
 					<td class="text-center col-sm-1">{{itemSold.agreedCommission}}</td>
-					<td class="text-center col-sm-2">{{itemSold.commissionAmount}}</td>
+					<td class="text-center col-sm-1">{{itemSold.commissionAmount}}</td>
 					<td class="text-center col-sm-1">{{itemSold.commissionPaid}}</td>
-					<td class="text-center col-sm-1">{{itemSold.websiteId}}</td>
-					<td class="text-center col-sm-1">{{itemSold.clientId}}</td>
+					<td class="text-center col-sm-2">{{itemSold.websiteName}}</td>
+					<td class="text-center col-sm-1">{{itemSold.firstName}}</td>
+					<td class="text-center col-sm-1">{{itemSold.lastName}}</td>
 				</tr>
 				<tr id="refreshRow">
-					<td colspan="4" class="text-left">
+					<td colspan="5" class="text-left">
 						<h4>Select an item to update</h4>
 					</td>
 					<td colspan="5" class="text-right">

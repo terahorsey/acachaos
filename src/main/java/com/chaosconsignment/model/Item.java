@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class Item {
 	
 	private int itemId;
-	private String itemName; 
+	public String itemName; 
 	private int clientId;
 	private String itemDescription;
 	private int itemCategoryId;  

@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 public class Client {
 
 	private int clientId;
-	private String firstName;
-	private String lastName;
+	public String firstName;
+	public String lastName;
 	private String address;
 	private String city;
 	private String state;

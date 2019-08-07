@@ -19,9 +19,19 @@ public class ItemSoldDao {
 			" ItemSoldId, ItemId, SoldDate, PriceSold, AgreedCommission, CommissionAmount, " +  
 			" CommissionPaid, WebsiteId, ClientId ";
 	
-	private static String sqlGetAllItemsSold = 
-			" SELECT " + allItemsSoldListColumns +
-			" FROM itemssoldlist ";
+	private final static String sqlGetAllItemsSold = 
+			" SELECT itemsold.ItemSoldId, item.ItemName, itemsold.SoldDate, itemsold.PriceSold, " +
+			" itemsold.AgreedCommission, itemsold.CommissionAmount, itemsold.CommissionPaid, " +
+			" web.WebsiteName, cclient.FirstName, cclient.LastName " +
+			" FROM itemssoldlist itemsold " +
+			" INNER JOIN itemslist item ON item.ItemId = itemsold.ItemId " +
+			" INNER JOIN website web ON web.WebsiteId = itemsold.WebsiteId " +
+			" INNER JOIN chaosclient cclient ON cclient.ClientId = itemsold.ClientId ";
+
+	
+//	private static String sqlGetAllItemsSold = 
+//			" SELECT " + allItemsSoldListColumns +
+//			" FROM itemssoldlist ";
 	
 	private static String sqlInsertItemSold = 
 			" INSERT INTO itemssoldlist (ItemId, SoldDate, PriceSold, AgreedCommission, " +
@@ -87,14 +97,16 @@ public class ItemSoldDao {
 		
 			ItemSold itemSold = new ItemSold();
 			itemSold.setItemSoldId(result.getInt("ItemSoldId"));
-			itemSold.setItemId(result.getInt("ItemId"));  
+			itemSold.setItemName(result.getString("ItemName"));  
 			itemSold.setSoldDate(result.getObject("SoldDate", LocalDate.class)); 
 			itemSold.setPriceSold(result.getBigDecimal("PriceSold")); 
 			itemSold.setAgreedCommission(result.getBigDecimal("AgreedCommission"));   
 			itemSold.setCommissionAmount(result.getBigDecimal("CommissionAmount"));  
 			itemSold.setCommissionPaid(result.getBoolean("CommissionPaid"));  
-			itemSold.setWebsiteId(result.getInt("WebsiteId"));  
-			itemSold.setClientId(result.getInt("ClientId"));  
+			itemSold.setWebsiteName(result.getString("WebsiteName")); 
+			itemSold.setFirstName(result.getString("FirstName"));
+			itemSold.setLastName(result.getString("LastName"));
+			  
 								
 			return itemSold;
 		}

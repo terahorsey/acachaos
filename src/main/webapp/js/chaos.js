@@ -182,6 +182,8 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 
 
 
+
+
 chaosapp.controller('chaosCreateController', function($scope, $http) {
 	
 	/** $scope.soldDate = {
@@ -190,9 +192,9 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 	
 	$scope.itemCategory = {
 		    availableOptions: [
-		      {id: '1', name: 'Appliances'},
-		      {id: '2', name: 'Arts & Crafts'},
-		      {id: '3', name: 'Auto & Auto Parts'}
+		      {id: 1, name: 'Appliances'},
+		      {id: 2, name: 'Arts & Crafts'},
+		      {id: 3, name: 'Auto & Auto Parts'}
 		    ]
 	};
 	
