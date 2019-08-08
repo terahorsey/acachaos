@@ -36,6 +36,10 @@ chaosapp.config(function($routeProvider) {
 		templateUrl : 'additem.html',
 		controller : 'chaosCreateController'
 	})
+	.when('/additemsold', {
+		templateUrl : 'additemsold.html',
+		controller : 'chaosCreateController'
+	})
 	.otherwise({
 		redirectTo: '/home'
 	});
@@ -156,6 +160,14 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 		);
 	}
 	
+	$scope.updateItemSold = function(itemSoldToUpdate) {
+		console.log('Selected item sold to update: ' + angular.toJson(itemSoldToUpdate));
+		$scope.itemSoldToUpdate = angular.copy(itemSoldToUpdate);
+		$scope.showEditDelete = true;
+		$scope.showSearch = false;
+		$scope.updateStatus = '';
+	}
+	
 	$scope.getItemsSold = function() {
 		console.log('getItemsSold');
 		$scope.itemsSold =[{"ItemSoldId": "retrieving items sold list..."}]
@@ -176,6 +188,23 @@ chaosapp.controller('chaoscontroller', function($scope, $http) {
 		$scope.showEditDelete = false;
 		$scope.showSearch = true;
 		$scope.getItemsSold();
+	}
+	
+	$scope.putItemSold = function(itemSoldToUpdate) {
+		$scope.jsonObject = angular.toJson(itemSoldToUpdate, false);
+		console.log('JSON item sold to update: ' + $scope.jsonObject);
+		
+		$http.put("/acachaos/webapi/chaosconsignment/updateitemsold", $scope.jsonObject)
+		.then (
+				function success(response) {
+					console.log('status: ' + response.status);
+					$scope.updateStatus = 'Update Successful';
+				},
+				function error(response) {
+					console.log('error, return status: ' + response.status);
+					$scope.udpateStatus = 'Update Error, ' + response.data.message;
+				}
+		);
 	}
 	
 });
@@ -216,9 +245,6 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 		      {id: 22, name: 'Toys & Games'},
 		      {id: 23, name: 'Video Games & Gaming Equip'}
 		     ];
-	
-	
-	
 	
 	$scope.postClient = function() {
 		$scope.jsonObject = angular.toJson($scope.newClient, false);
@@ -293,6 +319,41 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 				minimumPrice : ''
 		};
 	}
+	
+	$scope.postItemSold = function() {
+		$scope.jsonObject = angular.toJson($scope.newItemSold, false);
+		console.log('New item sold: ' + $scope.jsonObject);
+		
+		$http.post("/acachaos/webapi/chaosconsignment/additemsold", $scope.jsonObject)
+		.then(
+				function success(response) {
+					console.log('Status: ' + response.status);
+					$scope.createStatus = 'Successful Insert of New Item Sold';
+					$scope.successfulInsert = true;
+					$scope.getItemsSold();
+				},
+				function error(response) {
+					console.log('Error, return status: ' + response.status);
+					$scope.createStatus = 'Insert Error, ' + response.data.message;
+				}
+		 );
+		$scope.showSearch = true;
+		$scope.showEditDelete = false;
+	};
+	
+	/** $scope.clearItemSold = function() {
+		$scope.createStatus = 'Enter new item sold information';
+		$scope.successfulInsert = false;
+		$scope.newItemSold = {
+				itemName : '',
+				clientId : '',
+				itemCategoryId : '',
+				itemDescription : '',
+				itemSize : '',
+				initialPrice : '',
+				minimumPrice : ''
+		};
+	} **/
 	
 	
 });

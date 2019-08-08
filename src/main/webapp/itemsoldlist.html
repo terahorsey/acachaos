@@ -86,18 +86,18 @@ table.table-hover tr:hover td {
 
 		<br>
 
-		<!--  <form name="updateForm">
+		<form name="updateForm">
 			<div ng-show="showEditDelete">
 
 				<table class="table table-bordered">
 					<tr>
-						<td><label for="itemId">Item Id:</label> <span
-							id="itemId" ng-bind="itemToUpdate.itemId"></span></td>
+						<td><label for="itemSoldId">Item Sold Id:</label> <span
+							id="itemId" ng-bind="itemSoldToUpdate.itemSoldId"></span></td>
 					</tr>
 					<tr>
-						<td><label for="itemDescription">Item Description:</label> <input
-							id="itemDescription" type="text"
-							ng-model="itemToUpdate.itemDescription" size=50/></td>
+						<td><label for="commissionPaid">Has Commission Been Paid? (Enter: true or false )</label> <input
+							id="commissionPaid" type="text"
+							ng-model="itemSoldToUpdate.commissionPaid" size=20/></td>
 					</tr>
 					<tr>
 						<td>
@@ -111,39 +111,31 @@ table.table-hover tr:hover td {
 				<br>
 
 				<h5>Press 'Update' to save item changes.</h5>
-				<h5>Press 'Delete' to delete item.</h5>
-				<h5>Press 'Item Sold' to update item sold information.</h5>
 				<h5>Press 'Cancel' to discard changes &/or return to Item List.</h5>
 
 				<div class="footer">
-					<button type="button" ng-click="putItem(itemToUpdate)"
+					<button type="button" ng-click="putItemSold(itemSoldToUpdate)"
 						class="btn btn-success">
 						<span class="glyphicon glyphicon-edit"></span>Update
 					</button>
-					<button type="button" ng-click="deleteItem(itemToUpdate.itemId)"
-						ng-disabled="isDeleteButtonDisabled" class="btn btn-danger">
-						<span class="glyphicon glyphicon-remove"></span>Delete
-					</button>
-					<a href="#!itemsold" ng-click="itemSoldToUpdate()"
-						 class="btn btn-info" role="button">
-						<span class="glyphicon glyphicon-tag"></span>Item Sold
-						</a>
-					<button type="button" ng-click="returnToItems()"
+					<button type="button" ng-click="returnToItemsSold()"
 						class="btn btn-warning">
 						<span class="glyphicon"></span>Cancel
 					</button>
 				</div>
 
 			</div>
-		</form> -->
-		<!--  <div ng-show="showSearch">
-			<h5>Press 'Add Item' to add a new item.</h5>
+		</form> 
+		  <div ng-show="showSearch">
+			<h5>Press 'Item Sold' to add item sold information.</h5>
 
 			<div class="footer">
-				<a href="#!additem" ng-click="postItem(itemToAdd)"
-					class="btn btn-success" role="button">Add Item</a>
+				<a href="#!additemsold" ng-click="postItemSold(itemSoldToAdd)"
+						 class="btn btn-info" role="button">
+						<span class="glyphicon glyphicon-tag"></span>Item Sold
+					</a>
 			</div>
-		</div> -->
+		</div> 
 	</div>
 </body>
 </html>

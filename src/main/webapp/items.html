@@ -105,7 +105,6 @@ table.table-hover tr:hover td {
 
 				<h5>Press 'Update' to save item changes.</h5>
 				<h5>Press 'Delete' to delete item.</h5>
-				<h5>Press 'Item Sold' to update item sold information.</h5>
 				<h5>Press 'Cancel' to discard changes &/or return to Item List.</h5>
 
 				<div class="footer">
@@ -117,10 +116,6 @@ table.table-hover tr:hover td {
 						ng-disabled="isDeleteButtonDisabled" class="btn btn-danger">
 						<span class="glyphicon glyphicon-remove"></span>Delete
 					</button>
-					<a href="#!itemsold" ng-click="itemSoldToUpdate()"
-						 class="btn btn-info" role="button">
-						<span class="glyphicon glyphicon-tag"></span>Item Sold
-						</a>
 					<button type="button" ng-click="returnToItems()"
 						class="btn btn-warning">
 						<span class="glyphicon"></span>Cancel
