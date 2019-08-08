@@ -190,13 +190,33 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 			value: new Date(yyyy, MM, dd)
 	}; **/
 	
-	$scope.itemCategory = {
-		    availableOptions: [
+	$scope.itemCategories = 
+		     [
 		      {id: 1, name: 'Appliances'},
 		      {id: 2, name: 'Arts & Crafts'},
-		      {id: 3, name: 'Auto & Auto Parts'}
-		    ]
-	};
+		      {id: 3, name: 'Auto & Auto Parts'},
+		      {id: 4, name: 'Baby & Kid Stuff'},
+		      {id: 5, name: 'Bicycles & Bicyle Parts'},
+		      {id: 6, name: 'Books, Movies, Music'},
+		      {id: 7, name: 'Business Equipment'},
+		      {id: 8, name: 'Clothing & Shoes'},
+		      {id: 9, name: 'Collectibles'},
+		      {id: 10, name: 'Computer & Computer Equip'},
+		      {id: 11, name: 'Electronics & TV'},
+		      {id: 12, name: 'Furniture'},
+		      {id: 13, name: 'General, Other, Misc'},
+		      {id: 14, name: 'Health & Beauty'},
+		      {id: 15, name: 'Home & Garden'},
+		      {id: 16, name: 'Home Decor & Household Items'},
+		      {id: 17, name: 'Jewelry & Accessories'},
+		      {id: 18, name: 'Musical Instruments'},
+		      {id: 19, name: 'Pet Supplies'},
+		      {id: 20, name: 'Sports & Outdoors'},
+		      {id: 21, name: 'Tools'},
+		      {id: 22, name: 'Toys & Games'},
+		      {id: 23, name: 'Video Games & Gaming Equip'}
+		     ];
+	
 	
 	
 	
