@@ -6,6 +6,9 @@
 
 <style>
 
+h1 {
+	color: black;
+	}
 .table {
 	border-style: solid;
 	border-width: 4px;
@@ -20,7 +23,7 @@ th {
 	}	
 #clients {
 	background-color: white;
-	opacity: 0.75;
+	opacity: 0.80;
 	}
 table.table-hover tr:hover td {
 	background-color: silver;
@@ -36,12 +39,13 @@ table.table-hover tr:hover td {
 
 	<div class="container" ng-init="getClients()">
 		<div ng-show="showSearch">
+		
+		<h1 class="text-center col-sm-12">Chaos Client List</h1>
+		
 			<table class="table table-hover table-bordered">
-				<h1 class="text-center col-sm-12">Chaos Client List</h1>
 				<caption colspan="8" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
 				</caption>
-				</tr>
 				<tr>
 					<th class="text-center col-sm-1">Client Id</th>
 					<th class="text-center col-sm-2">First Name</th>
@@ -89,6 +93,13 @@ table.table-hover tr:hover td {
 							id="clientId" ng-bind="clientToUpdate.clientId"></span></td>
 					</tr>
 					<tr>
+						<td><label for="firstName">First Name:</label> <span
+							id="firstName" ng-bind="clientToUpdate.firstName"></span></td>
+					<tr>
+						<td><label for="lastName">Last Name:</label> <span
+							id="lastName" ng-bind="clientToUpdate.lastName"></span></td>
+					</tr>
+					<tr>
 						<td><label for="itemsPosted"># of Items Posted:</label> <input
 							id="itemsPosted" type="text"
 							ng-model="clientToUpdate.itemsPosted" /></td>
@@ -116,7 +127,7 @@ table.table-hover tr:hover td {
 				<div class="footer">
 					<button type="button" ng-click="putClient(clientToUpdate)"
 						class="btn btn-success">
-						<span class="glyphicon glyphicon-edit"></span>Update
+						<span class="glyphicon glyphicon-edit"></span> Update
 					</button>
 					<button type="button" ng-click="returnToClients()"
 						class="btn btn-warning">
@@ -126,12 +137,14 @@ table.table-hover tr:hover td {
 
 			</div>
 		</form>
+		
 		<div ng-show="showSearch">
 			<h5>Press 'Add Client' to add a client.</h5>
 
 			<div class="footer">
 				<a href="#!addclient" ng-click="postClient(clientToAdd)"
-					class="btn btn-success" role="button">Add Client</a>
+					class="btn btn-success" role="button">
+					<span class="glyphicon glyphicon-plus"></span> Add Client</a>
 			</div>
 		</div>
 	</div>

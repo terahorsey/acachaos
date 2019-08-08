@@ -3,11 +3,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Client</title>
+<style>
+
+h2 {
+	text-align: center;
+	}
+	
+</style>
 </head>
 <body>
 <br>
 	<div class="container">
 		<form name="createForm">
+		
+		<h2>Add New Client to Client List</h2>
+		<br>
 		
 		<div class="form-row">
 			<div class="form-group col-sm-6">
@@ -40,11 +50,11 @@
 		<div class="form-row">
 			<div class="form-group col-sm-6">
 				<label for="phone">Phone Number:</label> 
-				<input type="number" class="form-control" name="phone" ng-model="newClient.phone" required />
+				<input type="text" class="form-control" name="phone" ng-model="newClient.phone" required />
 			</div>
 			<div class="form-group col-sm-6"> 
 				<label for="email">Email Address:</label>
-				<input id="email" type="text" class="form-control" ng-model="newClient.eamil" />
+				<input id="text" type="text" class="form-control" ng-model="newClient.eamil" />
 			</div>
 		</div>
 		<div class="form-row">

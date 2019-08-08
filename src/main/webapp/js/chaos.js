@@ -341,19 +341,19 @@ chaosapp.controller('chaosCreateController', function($scope, $http) {
 		$scope.showEditDelete = false;
 	};
 	
-	/** $scope.clearItemSold = function() {
+	 $scope.clearItemSold = function() {
 		$scope.createStatus = 'Enter new item sold information';
 		$scope.successfulInsert = false;
 		$scope.newItemSold = {
-				itemName : '',
-				clientId : '',
-				itemCategoryId : '',
-				itemDescription : '',
-				itemSize : '',
-				initialPrice : '',
-				minimumPrice : ''
+				itemId : '',
+				soldDate : '',
+				priceSold : '',
+				agreedCommission : '',
+				commissionPaid : '',
+				websiteId : '',
+				clientId : ''
 		};
-	} **/
+	} 
 	
 	
 });

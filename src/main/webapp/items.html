@@ -6,6 +6,9 @@
 
 <style>
 
+h1 {
+	color: black;
+	}
 .table {
 	border-style: solid;
 	border-width: 4px;
@@ -20,7 +23,7 @@ th {
 	}
 #items {
 	background-color: white;
-	opacity: 0.75;
+	opacity: 0.80;
 	}
 table.table-hover tr:hover td {
 	background-color: silver;
@@ -37,12 +40,13 @@ table.table-hover tr:hover td {
 	<div class="container" ng-init="getItems()">
 		<div ng-show="showSearch">
 		
+		<h1 class="text-center col-sm-12">Chaos Item List</h1>
+		
 			<table class="table table-hover table-bordered">
-			<h1 class="text-center col-sm-12">Chaos Item List</h1>
 				<caption colspan="7" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
 				</caption>
-				</tr>
+				
 				<tr>
 					<th class="text-center col-sm-1">Item Id</th>
 					<th class="text-center col-sm-2">Item Name</th>
@@ -88,9 +92,13 @@ table.table-hover tr:hover td {
 							id="itemId" ng-bind="itemToUpdate.itemId"></span></td>
 					</tr>
 					<tr>
+						<td><label for="itemName">Item Name:</label> <span
+							id="itemName" ng-bind="itemToUpdate.itemName"></span></td>
+					</tr>
+					<tr>
 						<td><label for="itemDescription">Item Description:</label> <input
 							id="itemDescription" type="text"
-							ng-model="itemToUpdate.itemDescription" size=50/></td>
+							ng-model="itemToUpdate.itemDescription" size=100/></td>
 					</tr>
 					<tr>
 						<td>
@@ -110,11 +118,11 @@ table.table-hover tr:hover td {
 				<div class="footer">
 					<button type="button" ng-click="putItem(itemToUpdate)"
 						class="btn btn-success">
-						<span class="glyphicon glyphicon-edit"></span>Update
+						<span class="glyphicon glyphicon-edit"></span> Update
 					</button>
 					<button type="button" ng-click="deleteItem(itemToUpdate.itemId)"
 						ng-disabled="isDeleteButtonDisabled" class="btn btn-danger">
-						<span class="glyphicon glyphicon-remove"></span>Delete
+						<span class="glyphicon glyphicon-remove"></span> Delete
 					</button>
 					<button type="button" ng-click="returnToItems()"
 						class="btn btn-warning">
@@ -129,7 +137,8 @@ table.table-hover tr:hover td {
 
 			<div class="footer">
 				<a href="#!additem" ng-click="postItem(itemToAdd)"
-					class="btn btn-success" role="button">Add Item</a>
+					class="btn btn-success" role="button">
+					<span class="glyphicon glyphicon-plus"></span> Add Item</a>
 			</div>
 		</div>
 	</div>

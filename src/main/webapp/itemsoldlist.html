@@ -6,6 +6,9 @@
 </head>
 <style>
 
+h1 {
+	color: black;
+	}
 .table {
 	border-style: solid;
 	border-width: 4px;
@@ -20,7 +23,7 @@ th {
 	}
 #itemssold {
 	background-color: white;
-	opacity: 0.75;
+	opacity: 0.80;
 	}
 table.table-hover tr:hover td {
 	background-color: silver;
@@ -29,7 +32,6 @@ table.table-hover tr:hover td {
 	background-color: lightgray;
 	}
 
-
 </style>
 </head>
 <body>
@@ -37,12 +39,13 @@ table.table-hover tr:hover td {
 	<div class="container" ng-init="getItemsSold()">
 		<div ng-show="showSearch">
 		
+		<h1 class="text-center col-sm-12">Chaos Items Sold List</h1>
+		
 			<table class="table table-hover table-bordered">
-			<h1 class="text-center col-sm-12">Chaos Items Sold List</h1>
 				<caption colspan="10" class="text-right"><span id="search">Search</span>
 						<input type="text" maxlength="20" ng-model="searchValue">
 				</caption>
-				</tr>
+				
 				<tr>
 					<th class="text-center col-sm-1">Item Sold Id</th>
 					<th class="text-center col-sm-2">Item Name</th>
@@ -54,9 +57,9 @@ table.table-hover tr:hover td {
 					<th class="text-center col-sm-2">WebSite Name</th>
 					<th class="text-center col-sm-1">Client First Name</th>
 					<th class="text-center col-sm-1">Client Last Name</th>
-					
 				</tr>
-				<tr id="itemssold" ng-repeat="itemSold in itemsSold | filter : searchValue"
+				
+				<tr id="itemssold" ng-repeat="itemSold in itemsSold | orderBy : 'itemSoldId' | filter : searchValue "
 					ng-click="updateItemSold(itemSold)">
 					<td class="text-center col-sm-1">{{itemSold.itemSoldId}}</td>
 					<td class="text-center col-sm-2">{{itemSold.itemName}}</td>
@@ -95,6 +98,10 @@ table.table-hover tr:hover td {
 							id="itemId" ng-bind="itemSoldToUpdate.itemSoldId"></span></td>
 					</tr>
 					<tr>
+						<td><label for="itemName">Item Name:</label> <span
+							id="itemName" ng-bind="itemSoldToUpdate.itemName"></span></td>
+					</tr>
+					<tr>
 						<td><label for="commissionPaid">Has Commission Been Paid? (Enter: true or false )</label> <input
 							id="commissionPaid" type="text"
 							ng-model="itemSoldToUpdate.commissionPaid" size=20/></td>
@@ -116,7 +123,7 @@ table.table-hover tr:hover td {
 				<div class="footer">
 					<button type="button" ng-click="putItemSold(itemSoldToUpdate)"
 						class="btn btn-success">
-						<span class="glyphicon glyphicon-edit"></span>Update
+						<span class="glyphicon glyphicon-edit"></span> Update
 					</button>
 					<button type="button" ng-click="returnToItemsSold()"
 						class="btn btn-warning">
@@ -132,7 +139,7 @@ table.table-hover tr:hover td {
 			<div class="footer">
 				<a href="#!additemsold" ng-click="postItemSold(itemSoldToAdd)"
 						 class="btn btn-info" role="button">
-						<span class="glyphicon glyphicon-tag"></span>Item Sold
+						<span class="glyphicon glyphicon-tag"></span> Item Sold
 					</a>
 			</div>
 		</div> 
