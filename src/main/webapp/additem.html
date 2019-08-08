@@ -12,8 +12,7 @@ h2 {
 	font-size: 16px;
 }
 .box {
-	height: auto;
-	width: auto;
+	font-size: 16px;
 }
 	
 </style>
@@ -28,7 +27,7 @@ h2 {
 		<br>
 		
 		<div class="form-row">
-			<div class="form-group col-sm-6">
+			<div class="form-group col-sm-5">
 				<label for="itemName">Item Name</label> 
 				<input type="text" id="itemName" class="form-control" ng-model="newItem.itemName" required /> 
 			</div>
@@ -37,9 +36,9 @@ h2 {
 				<input type="number" id="clientId" class="form-control" ng-model="newItem.clientId" required />
 			</div>
 		</div>
-			<div class="box">
+			<div >
 				<label for="itemCategoryId">Item Categories:</label><br> 
-				<select name="category" ng-options="itemC.id as itemC.name for itemC in itemCategories"
+				<select class="box" name="category" ng-options="itemC.id as itemC.name for itemC in itemCategories"
 					ng-model="newItem.itemCategoryId">
 					<option value="">Select Item Category</option>
 				</select><br />

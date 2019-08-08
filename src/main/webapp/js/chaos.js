@@ -19,8 +19,8 @@ chaosapp.config(function($routeProvider) {
 	.when('/itemsoldlist', {
 		templateUrl : 'itemsoldlist.html'
 	})
-	.when('/search', {
-		templateUrl : 'search.html'
+	.when('/itemimages', {
+		templateUrl : 'itemimages.html'
 	})
 	.when('/resume', {
 		templateUrl : 'myResume.html'
