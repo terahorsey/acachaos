@@ -34,5 +34,8 @@ Technology Used:
   - HTML
   - CSS/Bootstrap
   - JavaSript/AngularJS
+
+Stack of Technologies Used for Project and throughout the course:
+![stack](Git%20Readme%20Images/stack.jpg)
   
   
