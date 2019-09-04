@@ -6,5 +6,3 @@ Chaos Consignment is a client and items tracking app for all items posted for sa
   - Add client, item posted, and item sold
   - Edit existing client, item posted, and item sold
   
-  Home Page
-  ![home page](
