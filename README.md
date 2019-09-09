@@ -13,8 +13,14 @@ Client List Page
 ![clientlist](Git%20Readme%20Images/clientlist.jpg)
 *Please note I have removed my clients phone numbers and email addresses from this image for privacy.*
 
+Add Client Page
+![addclient](Git%20Readme%20Images/addclient.jpg)
+
 Item List Page
 ![itemlist](Git%20Readme%20Images/itemlist.jpg)
+
+Add Item Page
+![additem](Git%20Readme%20Images/additem.jpg)
 
 Items Sold List Page
 ![itemsoldlist](Git%20Readme%20Images/itemsoldlist.jpg)
