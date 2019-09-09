@@ -24,6 +24,7 @@ Other pages include:
   - Adding / Updating a client
   - Adding / Updating / Deleting an item posted 
   - Adding / Updating an item sold 
+  - Images
     
 Technology Used:
 
